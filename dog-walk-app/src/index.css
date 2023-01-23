@@ -1,13 +1,349 @@
+html,
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+h2 {
+  font-style: italic;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+.primary-button {
+  color: white;
+  font-size: 15px;
+  text-transform: uppercase;
+  background-color: #fe3072;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+}
+
+.primary-button:hover {
+  background-color: #f4769d;
+  cursor: pointer;
+}
+
+.primary-title {
+  margin-top: none;
+  font-size: 90px;
+  text-shadow: 2px 2px 2px white;
+}
+
+body {
+  text-align: center;
+}
+
+/* Navbar */
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: none;
+}
+
+nav .logo-container {
+  width: 170px;
+  
+}
+
+nav .logo-container .logo {
+  width: 100%;
+}
+
+.nav-button {
+  color: white;
+  font-size: 15px;
+  text-transform: uppercase;
+  background-color: #30b337;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+  height: 45px;
+  margin: 10px;
+}
+
+nav .nav-button:disabled{
+  opacity: 0.6;
+}
+
+/* Home Page */
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: linear-gradient(260deg, rgb(34, 34, 164), lightblue);
+}
+
+
+/* AuthModal */
+
+.auth-modal-wrapper {
+  width: 100vw;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+}
+.auth-modal {
+position: absolute;
+margin-top: 20px;
+width: 360px;
+height: 600px;
+background-color: #fe3072;
+border-radius: 10px;
+padding: 40px;
+
+}
+
+.auth-modal .close-icon {
+  float:right;
+  margin: none;
+}
+
+.close-icon:hover{
+color: yellow;
+cursor: pointer;
+}
+
+.auth-modal .disclaimer {
+font-size: 12px;
+}
+
+.secondary-button {
+font-weight: 500;
+color:black;
+  background-color: aliceblue;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: solid 2px blue;
+}
+
+.secondary-button:hover{
+  color:white;
+  background-color: rgb(10, 10, 139);
+}
+
+.auth-modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-modal input[type=email],
+.auth-modal input[type=password],
+.auth-modal input[type=password-check] {
+  padding: 8px;
+  margin: 8px;
+  font-size: 15px;
+}
+
+/* OnBoarding Page*/
+
+.onboarding{
+  border-top: solid 1px grey;
+}
+
+.onboarding form {
+  display: flex;
+  justify-content: center;
+}
+
+.onboarding form section {
+  display: flex;
+  flex-direction: column;
+  padding:20px;
+  width: 25%;
+}
+
+.onboarding form input {
+  padding: 15px 30px;
+  margin: 10px 0;
+  font-size: 15px;
+  border: solid 2px rgb(160, 158, 158);
+  border-radius: 10px;
+}
+
+.row {
+  margin: 10px;
+}
+
+.row label {
+  margin-left: 5px;
+  margin-right: 12px;
+  border: 2px solid grey;
+  padding: 6px;
+  border-radius: 10px;
+}
+
+.row label:hover {
+  cursor: pointer;
+}
+
+.row label::after{
+  background-color: purple;
+  color:white;
+}
+
+.row input[type="radio"]{
+  display: none;
+}
+
+.row .gender-label {
+  border: none;
+}
+
+.onboarding form input[type="radio"]:checked + label{
+  background-color: purple;
+  color:white;
+  border-color: black;
+}
+
+.onboarding form input[type="submit"]:hover {
+  background-color: rgb(78, 201, 78);
+}
+
+.onboarding form input[type="submit"]:active {
+  background-color: rgb(20, 126, 20);
+}
+
+.onboarding form .photo-container img {
+  width: 100%
+}
+
+
+
+/* Dashboard */
+
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+}
+.dashboard .swiper-container{
+width: 70%;
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height:100vh;
+}
+
+.swipe {
+  position: absolute;
+}
+
+.dashboard .card-container {
+  width: 400px;
+  max-width: 260px;
+  height: 650px;
+}
+
+.card {
+  /* position: relative; */
+  background-color: #fff;
+  width:400px;
+  height: 650px;
+  /* box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30); */
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* .cardContent {
+  width: 100%;
+  height: 100%;
+} */
+
+/* .swipe:last-of-type {
+
+} */
+
+.card h3 {
+margin-top: 0;
+background-color: violet;
+border-radius: 10px 10px 0px 0px;
+}
+
+.dashboard .swipe-info {
+  position: absolute;
+  bottom: 0;
+  padding: 50px;
+}
+
+/* Chat Container */
+
+.chat-container {
+  /* background-color: pink; */
+  /* box-shadow: grey 0px 6px 24ox 0px; */
+  width: 30%;
+  border-right: 2px solid rgb(168, 166, 166);
+  /* text-align: left; */
+  z-index: 10;
+}
+
+.chat-container-header {
+  background-color: rgb(91, 207, 225);
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.option {
+  border: none;
+  background-color: white;
+  border-bottom: solid 4px red;
+  font-size: 20px;
+  margin:2px;
+  padding:10px;
+}
+
+.option:disabled {
+  border-bottom: solid 4px grey;
+}
+
+.profile, .log-out-icon {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  color:white;
+}
+
+
+.img-container {
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin:10px;
+}
+
+.img-container img {
+  width: 100%;
+}
+
+/* Chat Display */
+.chat-display {
+  padding: 20px;
+  height: 60vh;
+  overflow-y:auto;
+}
+
+.chat-input {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-input textarea {
+  margin-bottom: 20px;;
 }
