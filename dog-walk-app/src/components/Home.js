@@ -2,40 +2,47 @@ import React from "react";
 import { useState } from 'react';
 import Nav from "./Nav";
 import AuthModal from "./AuthModal";
+import {useCookies} from "react-cookie"
 
 const Home = () => {
-const [showModal, setShowModal] = useState(false)
-const [isSignUp, setIsSignUp] = useState(true)
-  const authToken = false;
+  const [showModal, setShowModal] = useState(false)
+  const [isSignUp, setIsSignUp] = useState(true)
+  const [cookies, setCookie, removeCookie] = useCookies(['user'])
+  const authToken = cookies.AuthToken
 
   const handleClick = () => {
-    console.log("Clicked!");
-    setShowModal(true)
-    setIsSignUp(true)
-  };
+      if (authToken) {
+          removeCookie('UserId', cookies.UserId)
+          removeCookie('AuthToken', cookies.AuthToken)
+          window.location.reload()
+          return
+      }
+      setShowModal(true)
+      setIsSignUp(true)
+  }
+
   return (
-    <div className="overlay">
-      <Nav
-      setShowModal = {setShowModal} 
-      showModal = {showModal}
-      isSignUp = {isSignUp}
-      setIsSignUp = {setIsSignUp}/>
-      <div className="home">
-        <h1 className = "primary-title">Swipe Right</h1>
-        <button className="primary-button" onClick={handleClick}>
-          {authToken ? "Signout" : "Create Account"}
-        </button>
+      <div className="overlay">
+          <Nav
+              authToken={authToken}
+              minimal={false}
+              setShowModal={setShowModal}
+              showModal={showModal}
+              setIsSignUp={setIsSignUp}
+          />
+          <div className="home">
+              <h1 className="primary-title">Friends With Dogs</h1>
+              <button className="primary-button" onClick={handleClick}>
+                  {authToken ? 'Signout' : 'Create Account'}
+              </button>
 
 
-        {showModal && (
-        <AuthModal setShowModal ={setShowModal}
-        isSignUp = {isSignUp}
-        />
-      )}
+              {showModal && (
+                  <AuthModal setShowModal={setShowModal} isSignUp={isSignUp}/>
+              )}
+          </div>
       </div>
-      
-    </div>
-  );
-};
+  )
+}
 
 export default Home;

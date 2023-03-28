@@ -95,7 +95,7 @@ nav .nav-button:disabled{
 position: absolute;
 margin-top: 20px;
 width: 360px;
-height: 600px;
+height: 500px;
 background-color: #fe3072;
 border-radius: 10px;
 padding: 40px;
@@ -130,6 +130,7 @@ color:black;
 .secondary-button:hover{
   color:white;
   background-color: rgb(10, 10, 139);
+  cursor: pointer;
 }
 
 .auth-modal form {
@@ -347,3 +348,12 @@ border-radius: 10px 10px 0px 0px;
 .chat-input textarea {
   margin-bottom: 20px;;
 }
+
+/*Chat Input*/
+.chat-input {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat */
